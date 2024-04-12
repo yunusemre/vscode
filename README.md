@@ -5,6 +5,33 @@ npm install --save-dev eslint prettier eslint-plugin-react eslint-plugin-react-h
 
 Eslint için script: 
 ``` "eslint": "eslint \"src/**/\*.{ts,tsx}\" --quiet --fix" ```
+Eslint için .eslintrc
+
+```
+{
+    "root": true,
+    "env": { "browser": true, "es2020": true },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:react/recommended",
+        "plugin:prettier/recommended",
+    ],
+    "ignorePatterns": ["dist", ".eslintrc.cjs"],
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["react-refresh", "react", "react-hooks", "@typescript-eslint"],
+    "rules": {
+        "react-refresh/only-export-components": ["warn", { "allowConstantExport": true }],
+        "react/react-in-jsx-scope": 0,
+    },
+    "settings": {
+        "react": {
+            "version": "detect",
+        },
+    },
+}
+```
 
 Prettier için script: 
 ``` "prettier --write" ```
@@ -48,3 +75,32 @@ package.json içerisine eklenecekler:
 ```
 
 ```"prepare": "husky" ```
+
+Dosya yolu için yapılması gerekenler:
+
+```
+"baseUrl": ".",
+"paths": {
+    "@/*": ["./src/*"]
+},
+"include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx"],
+"exclude": ["node_modules", "dist"],
+```
+
+vite config için yapılması gerekenler:
+
+```
+
+import tsconfigPaths from 'vite-tsconfig-paths'; // must installl
+
+export default defineConfig({
+    plugins: [react(), tsconfigPaths()],
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, './src'),
+        },
+    },
+});
+```
+
+
