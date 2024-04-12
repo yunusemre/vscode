@@ -7,7 +7,7 @@ Eslint için script:
 ``` "eslint": "eslint \"src/**/\*.{ts,tsx}\" --quiet --fix" ```
 
 Prettier için script: 
-``` "prettier --write" ````
+``` "prettier --write" ```
 
 Prettier .prettierrc için: 
 ```
@@ -32,6 +32,7 @@ Prettier .prettierrc için:
 Husky için yapılması gerekenler:
 ```npx husky add .husky/pre-commit "npx lint-staged" ```
 
+package.json içerisine eklenecekler: 
 ```
 "husky": {
   "hooks": {
@@ -46,4 +47,4 @@ Husky için yapılması gerekenler:
 }
 ```
 
-```... "prepare": "husky"... ```
+```"prepare": "husky" ```
