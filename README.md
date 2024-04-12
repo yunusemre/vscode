@@ -18,7 +18,7 @@ Eslint için .eslintrc
         "plugin:react/recommended",
         "plugin:prettier/recommended",
     ],
-    "ignorePatterns": ["dist", ".eslintrc.cjs"],
+    "ignorePatterns": ["dist", ".eslintrc"],
     "parser": "@typescript-eslint/parser",
     "plugins": ["react-refresh", "react", "react-hooks", "@typescript-eslint"],
     "rules": {
